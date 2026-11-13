@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RentFlow BZ
 
-## Getting Started
+RentFlow BZ is a Belize-focused rental management demo for landlords and tenants. The current application includes property and unit management, BZD rent tracking, payment review, utility splits, maintenance requests, notifications, and browser-local demo persistence.
 
-First, run the development server:
+## Run the web app
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`. The static export configuration also supports deployment to static hosting.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Prepare the mobile app
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The Next.js app exports static web assets into `out/`, which Capacitor can load in native Android and iOS shells.
 
-## Learn More
+```bash
+npm install
+npx cap add android
+npx cap add ios
+npm run mobile:sync
+npx cap open android
+npx cap open ios
+```
 
-To learn more about Next.js, take a look at the following resources:
+Android builds require Android Studio and its SDK. iOS builds require macOS and Xcode. Add only the platform you plan to build on.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Current demo limits
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The supplied application stores its sample records in the current browser or device's local storage. It does not yet provide accounts, cloud sync, multi-user data, or a production payment service. Those require a backend and authentication before real tenant or payment data is used.

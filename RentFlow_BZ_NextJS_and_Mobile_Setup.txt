@@ -1,0 +1,22 @@
+================================================================================
+RENTFLOW BZ — NEXT.JS + CAPACITOR MOBILE APP SETUP GUIDE
+================================================================================
+You asked whether to build RentFlow BZ as Next.js or a Mobile App.
+With Next.js + Capacitor, ONE codebase gives you BOTH:
+  1. A live SaaS Web App (deployable to Vercel in 60 seconds)
+  2. A native Android (.apk / Google Play) & iOS (App Store) mobile app!
+
+QUICK START COMMANDS:
+  1. npx create-next-app@latest rentflow-bz --typescript --tailwind --eslint
+  2. cd rentflow-bz
+  3. npm install lucide-react
+  4. Copy the React component into src/app/page.tsx
+  5. Test web/mobile UI locally: npm run dev
+
+TURN INTO AN ANDROID / IOS MOBILE APP (CAPACITOR):
+  1. Set `output: 'export'` inside next.config.mjs
+  2. npm install @capacitor/core @capacitor/cli @capacitor/android @capacitor/ios
+  3. npx cap init "RentFlow BZ" "com.rentflowbz.app" --web-dir=out
+  4. npm run build && npx cap add android && npx cap sync
+  5. npx cap open android  (Opens directly in Android Studio to build APK!)
+================================================================================
